@@ -60,4 +60,20 @@ cookies.click()
 
 time.sleep(3)
 
+for n in range(40):
+    time.sleep(1)
+    try:
+        print("Like button display")
+        like_btn = driver.find_element(By.XPATH, '//*[@id="u490315748"]/div/div[1]/div/main/div[1]/div/div/div[1]/div[1]/div/div[3]/div/div[4]/button')
+        like_btn.click()
+
+    except ElementClickInterceptedException:
+        try:
+            match_popup = driver.find_element(By.CSS_SELECTOR, ".itsAMatch a")
+            match_popup.click()
+
+        except NoSuchElementException:
+            time.sleep(2)
+          
 input(Keys.ENTER)
+driver.quit()
